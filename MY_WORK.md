@@ -32,11 +32,11 @@
 
 | Field | Your Answer |
 |-------|-------------|
-| **Full Name** | [Write your full name here] |
-| **Student ID** | [Write your student ID here] |
-| **University Email** | [yourid]@std.psau.edu.sa |
-| **GitHub Username** | [your-github-username] |
-| **Repository Link** | [Paste your repository link here] |
+| **Full Name** | Abdullah Ghannam Almutairi |
+| **Student ID** | 445350051 |
+| **University Email** | 445350051@std.psau.edu.sa |
+| **GitHub Username** | AbdullahGhannam1 |
+| **Repository Link** | https://github.com/AbdullahGhannam1/ OS-Assignment3-Abdullah-Almutairi |
  
 ---
 
@@ -132,68 +132,100 @@
 
 ## Your Development Log
 
-### Entry 1 - [Date and Time]
-**What I did**:
+### Entry 1 - November 24, 2026, approximately 7:53 PM
+
+**What I did**: Set up the GitHub repository and ran the original program.
 
 **Details**:
+- Forked and renamed the starter repository.
+- Cloned the repository using VS Code.
+- Changed the student ID in the Java file.
+- Created and pushed my first commit.
+- Ran the original program and saved the output.
+- The verification showed 41 context switches instead of 45, 17 completed processes instead of 19, and 493 busy-waiting polls.
 
-**Challenges**:
+**Challenges**: The first commit failed because my Git username and email were not configured.
 
-**Solution**:
+**Solution**: Configured my username and university email using Git commands, then committed and pushed the changes successfully.
 
-**Time spent**:
+**Time spent**: Approximately 20 minutes.
 
 ---
 
-### Entry 2 - [Date and Time]
-**What I did**:
+### Entry 2 - November 24, 2026, approximately 8:13 PM
+
+**What I did**: Implemented Feature 1 to protect the shared ready queue.
 
 **Details**:
+- Imported the ReentrantLock library.
+- Created a lock called `queueLock`.
+- Protected the `add()`, `poll()`, `processOf()`, and `snapshot()` methods.
+- Used `try/finally` to make sure the lock is always released.
+- Tested the program, created a separate commit, and pushed the changes to GitHub.
 
-**Challenges**:
+**Challenges**: Multiple CPUs were selecting the same process in the original program.
 
-**Solution**:
+**Solution**: Used one lock to protect the shared ready queue and prevent CPUs from accessing its critical sections at the same time.
 
-**Time spent**:
+**Time spent**: Approximately 1 hour and 8 minutes.
+---
+
+### Entry 3 - November 24, 2026, approximately 9:21 PM
+
+**What I did**: Implemented Feature 2 to protect the shared statistics.
+
+**Details**:
+- Created a ReentrantLock called `statsLock`.
+- Used one lock to protect the three shared counters.
+- Protected the reading and updating methods using `try/finally`.
+- Tested the program and checked the verification results.
+- Created a separate commit and pushed the changes to GitHub.
+
+**Challenges**: The shared counters showed incorrect values because multiple CPUs were updating them at the same time.
+
+**Solution**: Used one lock to prevent lost updates and simplify lock management. After testing, all three statistics matched the expected values.
+
+**Time spent**: Approximately 15 minutes.
 
 ---
 
-### Entry 3 - [Date and Time]
-**What I did**:
+### Entry 4 - November 24, 2026, approximately 9:36 PM
+
+**What I did**: Implemented Feature 3 to remove busy waiting using a counting semaphore.
 
 **Details**:
+- Imported the Semaphore library.
+- Created a semaphore called `availableProcesses` with an initial value of zero.
+- Used `release()` when adding a process to the ready queue.
+- Used `acquire()` to make CPUs wait until a process becomes available.
+- Removed the busy-waiting loop.
+- Added the `wakeUpCPUs()` method for clean shutdown.
 
-**Challenges**:
+**Challenges**: Some CPUs could remain blocked after all processes finished.
 
-**Solution**:
+**Solution**: Released additional semaphore permits when all processes were completed, allowing the waiting CPUs to wake up and terminate correctly.
 
-**Time spent**:
+**Time spent**: Approximately 13 minutes.
 
 ---
 
-### Entry 4 - [Date and Time]
-**What I did**:
+### Entry 5 - November 24, 2026, approximately 9:49 PM
+
+**What I did**: Tested the final program after completing all three features.
 
 **Details**:
+- Compiled and ran the final Java program.
+- Tested the program five times.
+- Verified that all four checks passed in every run.
+- Confirmed that all 19 processes completed successfully.
+- Confirmed 45 context switches, 169577 ms of total service time, and zero busy-waiting polls.
+- Created the fourth commit and pushed the changes to GitHub.
 
-**Challenges**:
+**Challenges**: I needed to make sure the results were consistent across multiple runs.
 
-**Solution**:
+**Solution**: Used a PowerShell loop to repeat the execution and check the verification results.
 
-**Time spent**:
-
----
-
-### Entry 5 - [Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
+**Time spent**: Approximately 9 minutes.
 
 ---
 
